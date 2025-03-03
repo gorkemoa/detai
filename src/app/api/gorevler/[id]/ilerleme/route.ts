@@ -3,16 +3,10 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 
-type RouteParams = {
-  params: {
-    id: string;
-  };
-};
-
 // İlerleme kayıtlarını getir
 export async function GET(
   request: NextRequest,
-  context: RouteParams
+  context: { params: { id: string } }
 ) {
   try {
     const taskId = context.params.id;
@@ -61,7 +55,7 @@ export async function GET(
 // Yeni ilerleme kaydı ekle
 export async function POST(
   request: NextRequest,
-  context: RouteParams
+  context: { params: { id: string } }
 ) {
   try {
     const taskId = context.params.id;
