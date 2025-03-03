@@ -1,0 +1,157 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Kullanıcı modeli
+model User {
+  id            String    @id @default(cuid())
+  name          String
+  email         String    @unique
+  password      String
+  image         String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  courses       Course[]
+  tasks         Task[]
+  notes         Note[]
+  studySessions StudySession[]
+  flashcards    Flashcard[]
+  questionSessions QuestionSession[]
+}
+
+// Ders modeli
+model Course {
+  id          String    @id @default(cuid())
+  title       String
+  description String?
+  color       String    @default("#4F46E5") // Varsayılan renk
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  userId      String
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tasks       Task[]
+  notes       Note[]
+  flashcards  Flashcard[]
+  questionSessions QuestionSession[]
+}
+
+// Görev modeli
+model Task {
+  id                 String    @id @default(cuid())
+  title              String
+  description        String?
+  dueDate            DateTime?
+  priority           Priority  @default(MEDIUM)
+  status             Status    @default(TODO)
+  completionPercentage Int      @default(0)
+  progressLog        String?
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+  userId             String
+  user               User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  courseId           String?
+  course             Course?   @relation(fields: [courseId], references: [id], onDelete: SetNull)
+  progressEntries    TaskProgress[]
+}
+
+// Not modeli
+model Note {
+  id        String   @id @default(cuid())
+  title     String
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  courseId  String?
+  course    Course?  @relation(fields: [courseId], references: [id], onDelete: SetNull)
+}
+
+// Çalışma oturumu modeli
+model StudySession {
+  id        String   @id @default(cuid())
+  startTime DateTime @default(now())
+  endTime   DateTime?
+  duration  Int?     // Dakika cinsinden
+  notes     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// Flashcard modeli
+model Flashcard {
+  id        String   @id @default(cuid())
+  question  String
+  answer    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  courseId  String?
+  course    Course?  @relation(fields: [courseId], references: [id], onDelete: SetNull)
+}
+
+// Görev öncelik enum
+enum Priority {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+// Görev durum enum
+enum Status {
+  TODO
+  IN_PROGRESS
+  DONE
+}
+
+// Görev İlerleme Kaydı Modeli
+model TaskProgress {
+  id                 String    @id @default(cuid())
+  percentage         Int       // İlerleme yüzdesi (0-100)
+  description        String    // Bu aşamada ne yapıldığı
+  createdAt          DateTime  @default(now()) // Kayıt tarihi
+  taskId             String
+  task               Task      @relation(fields: [taskId], references: [id], onDelete: Cascade)
+}
+
+// Soru çözüm oturumu modeli
+model QuestionSession {
+  id           String    @id @default(cuid())
+  startTime    DateTime  @default(now())
+  endTime      DateTime?
+  duration     Int?      // Saniye cinsinden
+  totalQuestions Int     @default(0)
+  correctAnswers Int     @default(0)
+  wrongAnswers   Int     @default(0)
+  emptyAnswers   Int     @default(0)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  userId       String
+  user         User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  courseId     String?
+  course       Course?   @relation(fields: [courseId], references: [id], onDelete: SetNull)
+  questions    QuestionDetail[]
+}
+
+// Çözülen soru detayları
+model QuestionDetail {
+  id               String   @id @default(cuid())
+  questionNumber   Int      // Soru numarası
+  isCorrect        Boolean  // Doğru mu
+  isEmpty          Boolean  @default(false) // Boş mu
+  timeSpent        Int?     // Saniye cinsinden harcanan süre
+  createdAt        DateTime @default(now())
+  sessionId        String
+  session          QuestionSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+}

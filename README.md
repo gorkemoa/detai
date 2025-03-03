@@ -1,36 +1,112 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📚 DETAİ - Öğrenci Ders Takip Uygulaması
 
-## Getting Started
+![detai logo](https://via.placeholder.com/800x200?text=DETAİ+LOGO)
 
-First, run the development server:
+## 🤔 Bu Uygulama Ne İşe Yarar?
 
+DETAİ, öğrencilerin:
+- 📝 Derslerini düzenlemesine
+- ⏰ Ödevlerini takip etmesine
+- 📊 Sınavlarını planlamasına
+- 🔍 Çalışma alışkanlıklarını geliştirmesine
+
+yardımcı olan **ÜCRETSİZ** bir uygulamadır.
+
+## ⭐ Neler Yapabilirsin?
+
+### 👤 Hesap Oluşturabilirsin
+- Kolayca kayıt ol ve giriş yap
+- Bilgilerini güvenle sakla
+
+### 📚 Derslerini Ekleyebilirsin
+- İstediğin dersi ekle
+- Dersleri renklerle ayır
+- Ders programını düzenle
+
+### ✅ Görevlerini Takip Edebilirsin
+- Ödevleri not et
+- Proje teslim tarihlerini kaydet
+- Sınavlarına hazırlan
+
+### 📝 Not Alabilirsin
+- Her ders için ayrı notlar
+- Resim ve dosya ekleyebilme
+- Notlarını düzenleme
+
+### ⏱️ Verimli Çalışabilirsin
+- Pomodoro tekniği ile çalış (25 dk çalış, 5 dk dinlen)
+- Çalışma sürelerini ölç
+- Molalarını düzenle
+
+### 🧠 Öğrenme Kartları Yapabilirsin
+- Soru-cevap kartları oluştur
+- Öğrenmeni hızlandır
+- Sınavlara daha iyi hazırlan
+
+### 📊 İstatistiklerini Görebilirsin
+- Ne kadar çalıştığını gör
+- Hangi derslere daha çok zaman ayırdığını öğren
+- Gelişimini takip et
+
+## 💻 Kullanılan Teknolojiler
+
+- **Ön yüz**: Next.js, React, TailwindCSS
+- **Arka yüz**: Next.js API
+- **Veritabanı**: SQLite (Prisma)
+- **Giriş Sistemi**: NextAuth.js
+
+## 🚀 Nasıl Kurulur?
+
+### 1️⃣ Kodu İndir
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/kullanici/ders-takip.git
+cd ders-takip
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2️⃣ Gereken Programları Yükle
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3️⃣ Veritabanını Hazırla
+```bash
+npx prisma migrate dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4️⃣ Uygulamayı Çalıştır
+```bash
+npm run dev
+```
 
-## Learn More
+### 5️⃣ Tarayıcıda Aç
+Tarayıcında şu adrese git: [http://localhost:3000](http://localhost:3000)
 
-To learn more about Next.js, take a look at the following resources:
+## ⚙️ Ayarlar Dosyası
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Uygulamayı çalıştırmak için `.env` dosyası oluştur ve şunları içine yaz:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+DATABASE_URL="file:./dev.db"
+NEXTAUTH_SECRET="gizli-anahtarin"
+NEXTAUTH_URL="http://localhost:3000"
+```
 
-## Deploy on Vercel
+## 🤝 Nasıl Katkıda Bulunabilirsin?
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Bu projeyi "fork" et
+2. Yeni bir dal oluştur: `git checkout -b yeni-ozellik`
+3. Değişikliklerini kaydet: `git commit -m 'Harika bir özellik ekledim'`
+4. Değişikliklerini yükle: `git push origin yeni-ozellik`
+5. Birleştirme isteği gönder
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📄 Lisans
+
+Bu proje MIT lisansı altında dağıtılmaktadır. Daha fazla bilgi için `LICENSE` dosyasına bakabilirsin.
+
+## 📱 İletişim
+
+Sorularınız için: ornek@email.com
+
+---
+
+### 🌟 DETAİ ile derslerine daha kolay hâkim ol! 🌟
