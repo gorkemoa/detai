@@ -104,54 +104,55 @@ export default function Home() {
 
       {/* Hero Section - Apple tarzı etkileyici hero bölümü */}
       <section className="relative py-24 min-h-screen flex items-center overflow-hidden">
-        {/* Paralaks Arka Plan Efekti */}
+        {/* Video Arka Plan */}
         <div className="absolute inset-0 z-0">
-          <Image 
-            src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=100&w=3840&auto=format&fit=crop" 
-            alt="Premium Background" 
-            fill 
-            quality={100}
-            className="object-cover opacity-20 scale-110 transform transition-transform duration-[25s] animate-subtle-zoom"
-            priority
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/60 to-black"></div>
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute w-full h-full object-cover opacity-30"
+            style={{ filter: 'brightness(0.4) saturate(1.2)' }}
+          >
+            <source src="https://cdn.pixabay.com/video/2021/02/20/65772-515379427_large.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/80 to-black"></div>
           
-          {/* Dinamik Işık Efektleri */}
+          {/* Modern Işık Efektleri */}
           <div className="absolute inset-0">
-            <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-purple-500/10 filter blur-[80px] animate-pulse-slow"></div>
-            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-blue-500/10 filter blur-[100px] animate-pulse-slow" style={{animationDelay: '2s'}}></div>
-            <div className="absolute top-1/2 left-1/2 w-72 h-72 rounded-full bg-gold-400/10 filter blur-[90px] animate-pulse-slow" style={{animationDelay: '4s'}}></div>
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-indigo-500/10 filter blur-[120px] animate-pulse-slow"></div>
+            <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-blue-500/10 filter blur-[150px] animate-pulse-slow" style={{animationDelay: '2s'}}></div>
+            <div className="absolute top-1/2 left-1/2 w-[400px] h-[400px] rounded-full bg-violet-500/10 filter blur-[130px] animate-pulse-slow" style={{animationDelay: '4s'}}></div>
           </div>
         </div>
 
-        {/* İnce Işık Efekti */}
-        <div className="absolute top-0 left-1/2 h-[600px] w-[1px] bg-gradient-to-b from-white/0 via-white/40 to-white/0 transform -translate-x-1/2"></div>
-        <div className="absolute top-1/3 left-1/4 h-[400px] w-[1px] bg-gradient-to-b from-purple-500/0 via-purple-500/30 to-purple-500/0"></div>
-        <div className="absolute top-1/4 right-1/4 h-[300px] w-[1px] bg-gradient-to-b from-blue-500/0 via-blue-500/30 to-blue-500/0"></div>
+        {/* Modern Işık Çizgileri */}
+        <div className="absolute top-0 left-1/2 h-[800px] w-[1px] bg-gradient-to-b from-transparent via-white/30 to-transparent transform -translate-x-1/2 animate-glow"></div>
+        <div className="absolute top-1/3 left-1/4 h-[600px] w-[1px] bg-gradient-to-b from-transparent via-indigo-500/20 to-transparent animate-glow-delayed"></div>
+        <div className="absolute top-1/4 right-1/4 h-[500px] w-[1px] bg-gradient-to-b from-transparent via-violet-500/20 to-transparent animate-glow-delayed-2"></div>
 
         <div className="container relative z-10 mx-auto px-4 flex flex-col items-center justify-center text-center">
           <div 
-            className="text-white/80 font-medium text-sm md:text-base mb-8 px-8 py-3 rounded-full bg-white/5 backdrop-blur-md border border-white/20 inline-block shadow-2xl"
+            className="text-white/90 font-medium text-sm md:text-base mb-8 px-8 py-3 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 inline-block shadow-2xl hover:scale-105 transition-all duration-500"
             style={{
               backdropFilter: "blur(12px)",
               WebkitBackdropFilter: "blur(12px)",
               animation: "fadeIn 0.8s ease-out, floatUp 0.8s ease-out",
-              boxShadow: "0 8px 32px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.05)"
+              boxShadow: "0 8px 32px rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(255, 255, 255, 0.1)"
             }}
           >
-            <span className="mr-2 inline-block w-2 h-2 rounded-full bg-gold-400 animate-pulse"></span>
-            Eğitimde Yeni Nesil Yaklaşım
+            <span className="mr-2 inline-block w-2 h-2 rounded-full bg-gradient-to-r from-violet-500 to-indigo-500 animate-pulse"></span>
+            Eğitimde Yapay Zeka Devrimi
           </div>
           <h1 
-            className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-10 max-w-5xl"
+            className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-10 max-w-5xl leading-tight"
             style={{
               animation: "fadeIn 1s ease-out 0.3s both, floatUp 1s ease-out 0.3s both",
               textShadow: "0 10px 30px rgba(0, 0, 0, 0.5)"
             }}
           >
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-200 to-gold-300">
-              Ders Yönetiminde Mükemmellik
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-200 to-violet-300">
+              Geleceğin Eğitim Platformu
             </span>
           </h1>
           <p 
@@ -160,7 +161,7 @@ export default function Home() {
               animation: "fadeIn 1s ease-out 0.6s both, floatUp 1s ease-out 0.6s both"
             }}
           >
-            <span className="text-gold-300">detai</span> ile çalışmalarınızı organize edin, zamanınızı verimli kullanın ve akademik başarınızı zirveye taşıyın. Yapay zeka teknolojimiz, eğitim yolculuğunuzda sizinle.
+            <span className="text-indigo-400">detai</span> ile çalışmalarınızı organize edin, zamanınızı verimli kullanın ve akademik başarınızı zirveye taşıyın. Yapay zeka teknolojimiz, eğitim yolculuğunuzda sizinle.
           </p>
           
           <div 
@@ -170,13 +171,16 @@ export default function Home() {
             }}
           >
             <Link href="/kayit">
-              <Button size="lg" className="bg-white text-black hover:bg-gray-100 px-10 py-7 rounded-full text-lg font-medium shadow-xl transition-all duration-300 hover:shadow-white/20 hover:scale-105">
+              <Button size="lg" className="bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white px-10 py-7 rounded-full text-lg font-medium shadow-xl transition-all duration-300 hover:shadow-indigo-500/20 hover:scale-105">
                 Hemen Başla
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
               </Button>
             </Link>
             <Link href="#demo-video">
-            <Button size="lg" className="bg-white text-black hover:bg-gray-100 px-10 py-7 rounded-full text-lg font-medium shadow-xl transition-all duration-300 hover:shadow-white/20 hover:scale-105">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <Button size="lg" className="bg-white/10 backdrop-blur-xl hover:bg-white/15 text-white px-10 py-7 rounded-full text-lg font-medium shadow-xl transition-all duration-300 hover:shadow-white/20 hover:scale-105 border border-white/10">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
@@ -185,22 +189,22 @@ export default function Home() {
             </Link>
           </div>
           
-          {/* Mockup Görsel - 4K HD Görünüm */}
+          {/* Modern Uygulama Arayüzü */}
           <div 
-            className="w-full max-w-6xl mx-auto relative perspective-1000"
+            className="w-full max-w-6xl mx-auto relative perspective-2000"
             style={{
               animation: "fadeIn 1.2s ease-out 1.2s both, floatUp 1.2s ease-out 1.2s both"
             }}
           >
-            {/* Gölge Efekti */}
-            <div className="absolute -inset-6 bg-gradient-to-r from-purple-500/10 via-blue-500/5 to-gold-400/10 rounded-3xl blur-xl -z-10"></div>
+            {/* Gölge ve Parıltı Efekti */}
+            <div className="absolute -inset-6 bg-gradient-to-r from-indigo-500/10 via-violet-500/5 to-transparent rounded-3xl blur-2xl -z-10"></div>
             
-            <div className="relative shadow-[0_30px_60px_-20px_rgba(0,0,0,0.5)] rounded-2xl overflow-hidden border-[1px] border-white/20 transform hover:scale-[1.01] transition-transform duration-700 hover:shadow-white/10 group">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-transparent to-gold-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10"></div>
+            <div className="relative shadow-[0_30px_100px_-20px_rgba(0,0,0,0.7)] rounded-2xl overflow-hidden border border-white/10 transform hover:scale-[1.02] transition-transform duration-700 hover:shadow-indigo-500/10 group">
+              <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/10 via-transparent to-violet-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10"></div>
               
               <Image
-                src="https://images.unsplash.com/photo-1616400619175-5beda3a17896?w=3840&h=2160&auto=format&fit=crop&q=100&ixlib=rb-4.0.3"
-                alt="detai uygulaması"
+                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=3840&h=2160&auto=format&fit=crop&q=100"
+                alt="detai uygulaması arayüzü"
                 width={3840}
                 height={2160}
                 className="rounded-xl w-full transition-transform duration-10000 group-hover:scale-[1.03]"
@@ -208,48 +212,48 @@ export default function Home() {
                 priority
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1400px"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent z-20"></div>
               
-              {/* Overlay Bilgi Kartı */}
-              <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-max bg-white/10 backdrop-blur-xl border border-white/20 px-8 py-4 rounded-xl text-white shadow-2xl z-30 group-hover:backdrop-blur-2xl transition-all duration-500 group-hover:bg-white/15">
-                <div className="flex items-center gap-2">
-                  <span className="inline-block w-3 h-3 rounded-full bg-green-400 animate-pulse"></span>
+              {/* Modern Bilgi Kartı */}
+              <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-max bg-white/10 backdrop-blur-2xl border border-white/20 px-8 py-4 rounded-2xl text-white shadow-2xl z-30 hover:scale-105 transition-all duration-500">
+                <div className="flex items-center gap-3">
+                  <div className="flex space-x-1">
+                    <span className="inline-block w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
+                    <span className="inline-block w-2 h-2 rounded-full bg-violet-500 animate-pulse" style={{animationDelay: '0.2s'}}></span>
+                    <span className="inline-block w-2 h-2 rounded-full bg-blue-500 animate-pulse" style={{animationDelay: '0.4s'}}></span>
+                  </div>
                   <span className="font-medium">7 günlük ücretsiz deneme • Kredi kartı gerektirmez</span>
                 </div>
               </div>
               
-              {/* Nokta Desenli Overlay */}
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[length:20px_20px] opacity-30 mix-blend-overlay z-20"></div>
+              {/* Modern Nokta Deseni */}
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[length:24px_24px] opacity-30 mix-blend-overlay z-20"></div>
             </div>
             
-            {/* Işık Parıltıları */}
-            <div className="absolute -top-20 -right-20 w-40 h-40 rounded-full bg-blue-500/20 filter blur-[80px] animate-pulse-slow"></div>
-            <div className="absolute -bottom-20 -left-20 w-40 h-40 rounded-full bg-purple-500/20 filter blur-[80px] animate-pulse-slow" style={{animationDelay: '2s'}}></div>
+            {/* Modern Işık Efektleri */}
+            <div className="absolute -top-20 -right-20 w-60 h-60 rounded-full bg-indigo-500/20 filter blur-[100px] animate-pulse-slow"></div>
+            <div className="absolute -bottom-20 -left-20 w-60 h-60 rounded-full bg-violet-500/20 filter blur-[100px] animate-pulse-slow" style={{animationDelay: '2s'}}></div>
           </div>
           
-          {/* Özellik Gösterge Noktaları */}
-          <div className="mt-12 flex flex-wrap justify-center gap-6 items-center" style={{animation: "fadeIn 1.5s ease-out 1.5s both"}}>
-            <div className="flex items-center gap-2 text-sm text-zinc-400">
-              <div className="w-1 h-1 rounded-full bg-gold-400"></div>
-              <span>AI Destekli Öğrenme</span>
+          {/* Modern Özellik Göstergeleri */}
+          <div className="mt-16 flex flex-wrap justify-center gap-8 items-center" style={{animation: "fadeIn 1.5s ease-out 1.5s both"}}>
+            <div className="flex items-center gap-3 px-6 py-3 bg-white/5 backdrop-blur-xl rounded-full border border-white/10 hover:bg-white/10 transition-all duration-300">
+              <div className="w-2 h-2 rounded-full bg-gradient-to-r from-indigo-500 to-violet-500 animate-pulse"></div>
+              <span className="text-white/80">AI Destekli Öğrenme</span>
             </div>
-            <div className="flex items-center gap-2 text-sm text-zinc-400">
-              <div className="w-1 h-1 rounded-full bg-gold-400"></div>
-              <span>Kişiselleştirilmiş Deneyim</span>
+            <div className="flex items-center gap-3 px-6 py-3 bg-white/5 backdrop-blur-xl rounded-full border border-white/10 hover:bg-white/10 transition-all duration-300">
+              <div className="w-2 h-2 rounded-full bg-gradient-to-r from-violet-500 to-indigo-500 animate-pulse"></div>
+              <span className="text-white/80">Kişiselleştirilmiş Deneyim</span>
             </div>
-            <div className="flex items-center gap-2 text-sm text-zinc-400">
-              <div className="w-1 h-1 rounded-full bg-gold-400"></div>
-              <span>Gelişmiş Analitikler</span>
+            <div className="flex items-center gap-3 px-6 py-3 bg-white/5 backdrop-blur-xl rounded-full border border-white/10 hover:bg-white/10 transition-all duration-300">
+              <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-violet-500 animate-pulse"></div>
+              <span className="text-white/80">Gelişmiş Analitikler</span>
             </div>
-            <div className="flex items-center gap-2 text-sm text-zinc-400">
-              <div className="w-1 h-1 rounded-full bg-gold-400"></div>
-              <span>7/24 Erişim</span>
+            <div className="flex items-center gap-3 px-6 py-3 bg-white/5 backdrop-blur-xl rounded-full border border-white/10 hover:bg-white/10 transition-all duration-300">
+              <div className="w-2 h-2 rounded-full bg-gradient-to-r from-violet-500 to-blue-500 animate-pulse"></div>
+              <span className="text-white/80">7/24 Erişim</span>
             </div>
           </div>
         </div>
-        
-        {/* Silik arka plan renkleri */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/80 to-black/90"></div>
       </section>
 
       {/* Fiyatlandırma Planları Bölümü */}
