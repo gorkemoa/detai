@@ -41,7 +41,7 @@ export async function POST(request: Request) {
     });
 
     // Şifreyi çıkararak kullanıcı bilgilerini döndür
-    const { password: _, ...userWithoutPassword } = user;
+    const { password, ...userWithoutPassword } = user;
 
     return NextResponse.json(userWithoutPassword, { status: 201 });
   } catch (error) {

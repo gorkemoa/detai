@@ -18,7 +18,7 @@ const TEMEL_DERSLER = [
 ];
 
 // Dersleri getirme API'si
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     // Kullanıcı oturumunu kontrol et
     const session = await getServerSession(authOptions);
@@ -55,7 +55,7 @@ export async function GET(request: NextRequest) {
 }
 
 // Temel dersleri yükleme API'si
-export async function PATCH(request: NextRequest) {
+export async function PATCH() {
   try {
     // Kullanıcı oturumunu kontrol et
     const session = await getServerSession(authOptions);
